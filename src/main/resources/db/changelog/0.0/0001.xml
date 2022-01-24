@@ -1,0 +1,28 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+  http://www.liquibase.org/xml/ns/pro
+  http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <changeSet id="0001" author="vluzhnykh">
+        <createTable tableName="book">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="book_pk"/>
+            </column>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false" notNullConstraintName="books_title_not_null"/>
+            </column>
+            <column name="author" type="VARCHAR(255)">
+                <constraints nullable="false" notNullConstraintName="books_author_not_null"/>
+            </column>
+        </createTable>
+    </changeSet>
+    
+    <changeSet id="0002" author="vluzhnykh">
+        <addUniqueConstraint tableName="book" columnNames="author, title" constraintName="book_author_title_unique"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    initialization-mode: never
+    url: jdbc:postgresql://localhost:5432/mydb
+    username: postgresql
+    password: postgresql
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  liquibase:
+    enabled: true
+    change-log: /db/changelog/db.changelog-master.xml
+
