@@ -1,10 +1,8 @@
 package ru.vluzhnykh.quickstart.mcstesting.rest;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -16,12 +14,9 @@ import ru.vluzhnykh.quickstart.mcstesting.service.BookServiceImpl;
 
 import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
@@ -86,6 +81,7 @@ class BookControllerTest {
         verify(bookService, times(1)).get(bookId);
         verifyNoMoreInteractions(bookService);
     }
+
     @DisplayName("возвращать 404 по GET /books/{bookId}, если книги не существует")
     @Test
     public void shouldReturn404AtGetBooksIdWhenBookNotFound() throws Exception {
@@ -111,8 +107,8 @@ class BookControllerTest {
 
         mvc.perform(
                 put("/books")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(bookJson)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(bookJson)
         )
                 .andExpect(status().isOk());
 
@@ -131,8 +127,8 @@ class BookControllerTest {
 
         mvc.perform(
                 put("/books")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(bookJson)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(bookJson)
         )
                 .andExpect(status().isNotFound());
 

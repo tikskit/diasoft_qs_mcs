@@ -1,11 +1,9 @@
 package ru.vluzhnykh.quickstart.mcstesting.rest;
 
-import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
 import ru.vluzhnykh.quickstart.mcstesting.domain.Book;
 
 import static org.assertj.core.api.Assertions.assertThat;
