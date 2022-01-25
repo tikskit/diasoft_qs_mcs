@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    initialization-mode: never
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  liquibase:
+    enabled: true
+    change-log: /db/changelog/db.changelog-master.xml
+
