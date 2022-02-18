@@ -1,0 +1,8 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:29092
+  cloud:
+    stream:
+      bindings:
+        msgLogger-in-0:
+          destination: demo
