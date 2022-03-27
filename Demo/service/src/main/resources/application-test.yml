@@ -26,11 +26,12 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      naming: 
-        physical-strategy: ru.diasoft.micro.lib.config.H2PhysicalNamingStrategy
+      ddl-auto: create
+    show-sql: true
+    generate-ddl: true
   liquibase:
     change-log: classpath*:rootChangeLog.xml
-# Generate Events Publisher or Subsriber   
+# Generate Events Publisher or Subsriber
   kafka:
     bootstrap-servers: localhost:9094    
 

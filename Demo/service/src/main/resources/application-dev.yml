@@ -16,31 +16,27 @@ security:
     resource: 
       jwt: 
         key-uri:
-        
+
+
 spring:
-# Postgres
   datasource:
-    driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/template2
-    username: postgres
-    password: 123456
-    hikari:
-      connection-test-query:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
-    show-sql: true
-    generate-ddl: false
+    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: none
-      naming: 
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    properties:
-      hibernate:
-        globally_quoted_identifiers: true # Для PostgreSQL установить в true, для MSSQL, Oracle в false
-        jdbc:
-          time_zone: UTC
-          lob:
-            non_contextual_creation: true
+      ddl-auto: create
+    generate-ddl: true
+
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+#      //http://localhost:7081/demo/h2-console/
 
 # Oracle
 #  datasource:
@@ -80,7 +76,7 @@ spring:
 #        physical-strategy: ${JPA_STRATEGY:ru.diasoft.micro.lib.config.H2PhysicalNamingStrategy}
 # Generate Events Publisher or Subsriber
   kafka:
-    bootstrap-servers: ${KAFKA_URL:localhost:9092}     
+    bootstrap-servers: ${KAFKA_URL:localhost:9092}
     admin:
       properties:
         request.timeout.ms: ${KAFKA_REQUEST_TIMEOUT:5000}

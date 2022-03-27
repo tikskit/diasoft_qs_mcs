@@ -26,14 +26,20 @@ public class SecurityConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        if(securityEnabled) {
+        if (securityEnabled) {
             http
-                .csrf(CsrfConfigurer::disable)
-                .authorizeRequests()
-                .antMatchers("/", "/csrf", "/v3/api-docs", "/swagger-resources/configuration/ui", "/configuration/ui", "/swagger-resources", "/swagger-resources/configuration/security", "/configuration/security", "/swagger-ui.html", "/swagger-ui/**", "/webjars/**", "/actuator/**").permitAll()
-                .antMatchers("/**").authenticated();
+                    .csrf(CsrfConfigurer::disable)
+                    .headers().frameOptions().disable()
+                    .and()
+                    .authorizeRequests()
+                    .antMatchers("/", "/csrf", "/v3/api-docs", "/swagger-resources/configuration/ui", "/configuration/ui", "/swagger-resources", "/swagger-resources/configuration/security", "/configuration/security", "/swagger-ui.html", "/swagger-ui/**", "/webjars/**", "/actuator/**", "/h2-console/**").permitAll()
+                    .antMatchers("/**").authenticated();
         } else {
-            http.authorizeRequests().antMatchers("/**").permitAll();
+            http
+                    .csrf().disable()
+                    .headers().frameOptions().disable()
+                    .and()
+                    .authorizeRequests().antMatchers("/**").permitAll();
         }
     }
 }
