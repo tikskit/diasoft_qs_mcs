@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module>
-    <sysname>servicediscovery</sysname>
-    <name>servicediscovery</name>
-    <description>servicediscovery</description>
-    <project>servicediscovery</project>
-    <msa>true</msa>
-    <config></config>
-</module>

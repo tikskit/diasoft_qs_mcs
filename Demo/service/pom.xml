@@ -86,9 +86,9 @@
                             <skip>true</skip>
                             <qarcherService>http://dsagregator2:8050</qarcherService>
                             <targetPackage>ru.diasoft.digitalq</targetPackage>
-                            <qarcherModuleName>DQ Mobile Investment Client Portfolio</qarcherModuleName>
+                            <qarcherModuleName>DQ Hackathon Tutorial</qarcherModuleName>
                             <!--    -->
-                            <qarcherVersion>1.01.01</qarcherVersion>
+                            <qarcherVersion>1.01.00</qarcherVersion>
                             <!--    -->
                             <asyncApi>true</asyncApi>
                             <useZonedDateTime>true</useZonedDateTime>

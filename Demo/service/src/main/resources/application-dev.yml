@@ -17,8 +17,19 @@ security:
       jwt: 
         key-uri:
 
+eureka:
+  client:
+    enabled: true
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
 
 spring:
+  application:
+    name: demo-app
   datasource:
     driverClassName: org.h2.Driver
     url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
@@ -76,7 +87,7 @@ spring:
 #        physical-strategy: ${JPA_STRATEGY:ru.diasoft.micro.lib.config.H2PhysicalNamingStrategy}
 # Generate Events Publisher or Subsriber
   kafka:
-    bootstrap-servers: ${KAFKA_URL:localhost:9092}
+    bootstrap-servers: ${KAFKA_URL:localhost:29092}
     admin:
       properties:
         request.timeout.ms: ${KAFKA_REQUEST_TIMEOUT:5000}
