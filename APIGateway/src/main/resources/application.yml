@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: all
+          uri: http://localhost:7081
+          predicates:
+            - Path=/sms-verification
+          filters:
+            - RewritePath=/(?<segment>.*),/demo/v1/$\{segment}
+      httpclient:
+        wiretap: true
+      httpserver:
+        wiretap: true
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: TRACE

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module>
-    <sysname>apigateway</sysname>
-    <name>apigateway</name>
-    <description>apigateway</description>
-    <project>apigateway</project>
-    <msa>true</msa>
-    <config></config>
-</module>
